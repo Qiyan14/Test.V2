@@ -1,9 +1,9 @@
 #===========================================================================#
-# caTools - R library                                                       #
+# TestingTools - R library                                                       #
 # Copyright (C) 2005 Jarek Tuszynski                                        #
 # Distributed under GNU General Public License version 3                    #
 #===========================================================================#
-#source('C:/Projects/R Packages/caTools/R/runfunc.R')
+#source('C:/Projects/R Packages/TestingTools/R/runfunc.R')
 
 runmean = function(x, k, alg=c("C", "R", "fast", "exact"),
                    endrule=c("mean", "NA", "trim", "keep", "constant", "func"),
@@ -21,13 +21,13 @@ runmean = function(x, k, alg=c("C", "R", "fast", "exact"),
 
   if (alg=="exact") {
     y <- .C("runmean_exact", x, y = double(n) , as.integer(n), as.integer(k),
-            NAOK=TRUE, PACKAGE="caTools")$y
+            NAOK=TRUE, PACKAGE="TestingTools")$y
   } else if (alg=="C") {
     y <- .C("runmean", as.double(x), y = double(n), as.integer(n), as.integer(k),
-            NAOK=TRUE, PACKAGE="caTools")$y
+            NAOK=TRUE, PACKAGE="TestingTools")$y
   } else if (alg=="fast") {
     y <- .C("runmean_lite", as.double(x), y = double(n), as.integer(n), as.integer(k),
-            NAOK=TRUE, PACKAGE="caTools")$y
+            NAOK=TRUE, PACKAGE="TestingTools")$y
   } else {     # the similar algorithm implemented in R language
       y = double(n)
     k1 = k-k2-1
