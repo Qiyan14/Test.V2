@@ -1,4 +1,4 @@
-Package: caTools
+Package: TestingTools
 Type: Package
 Title: Tools: Moving Window Statistics, GIF, Base64, ROC AUC, etc
 Version: 1.18.3
