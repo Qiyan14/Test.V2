@@ -1,4 +1,4 @@
-useDynLib("caTools", .registration = TRUE, .fixes = ".C_")
+useDynLib("TestingTools", .registration = TRUE, .fixes = ".C_")
 
 import(bitops)
 
@@ -10,4 +10,4 @@ importFrom("utils", "download.file", "read.table")
 # Export all names
 exportPattern("^[^\\.]")
 
-S3method("predict", "LogitBoost")
+S3method("predict", "LogitBoostTesting")
