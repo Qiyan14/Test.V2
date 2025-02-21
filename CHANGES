@@ -79,14 +79,14 @@ Changes:
     with "exact" option instead.
   - Removed references to several no-longer-existing packages and functions from 
     Rd files.  
-  - changed documentation of predict.LogitBoost to follow S3 mathod syntax.
+  - changed documentation of predict.LogitBoostTesting to follow S3 mathod syntax.
   - renamed sum.exact and cumsum.exact to sumexact and cumsumexact to avoid 
     package build errors. those functions were confused with S3 mathods.
   12) TestingTools-1.12 (April 2011)  
   - small correction to GifTools.cpp sent by Murray Stokely to allow compilation 
     with clang rather than gcc compiler.
   - corrections to runmean documentation sent by Jon Wade
-  - fixed bug in LogitBoost.R which was causing crashes when all values of a 
+  - fixed bug in LogitBoostTesting.R which was causing crashes when all values of a 
     column were identical
   - added comments to runfunc.c
   13) TestingTools-1.13 (May 2012)
