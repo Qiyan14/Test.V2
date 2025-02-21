@@ -1,6 +1,6 @@
-\name{caTools-package}
-\alias{caTools-package}
-\alias{caTools}
+\name{TestingTools-package}
+\alias{TestingTools-package}
+\alias{TestingTools}
 \docType{package}
 \title{
 Tools: moving window statistics, GIF, Base64, ROC AUC, etc. 
