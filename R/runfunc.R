@@ -57,7 +57,7 @@ runmin = function(x, k, alg=c("C", "R"),
 
   if (alg=="C") {
     y <- .C("runmin", as.double(x), y = double(n), as.integer(n), as.integer(k),
-            NAOK=TRUE, PACKAGE="caTools")$y
+            NAOK=TRUE, PACKAGE="TestingTools")$y
   } else { # the similar algorithm implemented in R language
       y = double(n)
     k2 = k%/%2
@@ -96,7 +96,7 @@ runmax = function(x, k, alg=c("C", "R"),
 
   if (alg=="C") {
     y <- .C("runmax", as.double(x), y = double(n) , as.integer(n), as.integer(k),
-            NAOK=TRUE, PACKAGE="caTools")$y
+            NAOK=TRUE, PACKAGE="TestingTools")$y
   } else { # the same algorithm implemented in R language
       y = double(n)
     k2 = k%/%2
@@ -140,7 +140,7 @@ runquantile = function(x, k, probs, type=7,
   y = double(n*np)
   y <- .C("runquantile", as.double(x), y = y , as.integer(n), as.integer(k),
           as.double(probs), as.integer(np),as.integer(type),
-          NAOK=TRUE, PACKAGE="caTools")$y
+          NAOK=TRUE, PACKAGE="TestingTools")$y
   dim(y) =  c(n,np)
 
   for (i in 1:np) {   # for each percentile
@@ -169,7 +169,7 @@ runmad = function(x, k, center = runmed(x,k), constant = 1.4826,
   if (k<3) stop("'k' must be larger than 2")
   if (k>n) k = n
   y <- .C("runmad", as.double(x), as.double(center), y = double(n),
-          as.integer(n), as.integer(k), NAOK=TRUE, PACKAGE="caTools")$y
+          as.integer(n), as.integer(k), NAOK=TRUE, PACKAGE="TestingTools")$y
   y = EndRule(x, y, k, dimx, endrule, align, mad, constant=1, na.rm=TRUE)
   return(constant*y)
 }
@@ -188,7 +188,7 @@ runsd = function(x, k, center = runmean(x,k),
   if (k<3) stop("'k' must be larger than 2")
   if (k>n) k = n
   y <- .C("runsd", as.double(x), as.double(center), y = double(n),
-          as.integer(n), as.integer(k), NAOK=TRUE, PACKAGE="caTools")$y
+          as.integer(n), as.integer(k), NAOK=TRUE, PACKAGE="TestingTools")$y
   y = EndRule(x, y, k, dimx, endrule, align, sd, na.rm=TRUE)
   return(y)
 }
