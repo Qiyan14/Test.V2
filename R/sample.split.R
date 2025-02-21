@@ -1,5 +1,5 @@
 #===========================================================================#
-# caTools - R library                                                       #
+# TestingTools - R library                                                       #
 # Copyright (C) 2005 Jarek Tuszynski                                        #
 # Distributed under GNU General Public License version 3                    #
 #===========================================================================#
