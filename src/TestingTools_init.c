@@ -43,7 +43,7 @@ static const R_CallMethodDef CallEntries[] = {
     {NULL, NULL, 0}
 };
 
-void R_init_caTools(DllInfo *dll)
+void R_init_TestingTools(DllInfo *dll)
 {
     R_registerRoutines(dll, CEntries, CallEntries, NULL, NULL);
     R_useDynamicSymbols(dll, FALSE);
