@@ -8,7 +8,7 @@ Tools: moving window statistics, GIF, Base64, ROC AUC, etc.
 \description{
 Contains several basic utility functions including: moving
 (rolling, running) window statistic functions, read/write for
-GIF and ENVI binary files, fast calculation of AUC, LogitBoost
+GIF and ENVI binary files, fast calculation of AUC, LogitBoostTesting
 classifier, base64 encoder/decoder, round-off error free sum
 and cumsum, etc.
 }
