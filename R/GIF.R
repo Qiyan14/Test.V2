@@ -106,7 +106,7 @@ write.gif = function(image, filename, col="gray",
   else comment = as.character(comment)
   # call C++ function
   .C("imwritegif", filename, x, Palette, param, comment,
-     NAOK=FALSE, PACKAGE="caTools") 
+     NAOK=FALSE, PACKAGE="TestingTools") 
   if (param[7]<0) stop("write.gif: cannot open the output file (connection)")
   invisible(NULL)
 }
@@ -127,7 +127,7 @@ read.gif = function(filename, frame=0, flip=FALSE, verbose=FALSE)
   }
 
   x = .Call("imreadgif", filename, as.integer(frame), as.integer(verbose), 
-       PACKAGE="caTools") 
+       PACKAGE="TestingTools") 
   comt = as.character(attr(x, 'comm'))
   if (isURL) file.remove(filename)
 
@@ -176,4 +176,4 @@ read.gif = function(filename, frame=0, flip=FALSE, verbose=FALSE)
   return (list(image=x, col=Palette, transparent=tran, comment=comt))
 }
 
-# source("c:/programs/R/rw2011/src/library/caTools/R/GIF.R")
+# source("c:/programs/R/rw2011/src/library/TestingTools/R/GIF.R")
