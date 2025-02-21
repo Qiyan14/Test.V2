@@ -1,9 +1,9 @@
-\name{LogitBoost}
-\alias{LogitBoost}
-\title{LogitBoost Classification Algorithm}
-\description{Train logitboost classification algorithm using decision 
+\name{LogitBoostTesting}
+\alias{LogitBoostTesting}
+\title{LogitBoostTesting Classification Algorithm}
+\description{Train LogitBoostTesting classification algorithm using decision 
   stumps (one node decision trees) as weak learners.  }
-\usage{LogitBoost(xlearn, ylearn, nIter=ncol(xlearn))}
+\usage{LogitBoostTesting(xlearn, ylearn, nIter=ncol(xlearn))}
 
 \arguments{
   \item{xlearn}{A matrix or data frame with training data. Rows contain samples 
@@ -17,7 +17,7 @@
 }
 
 \details{
-  The function was adapted from logitboost.R function written by Marcel 
+  The function was adapted from LogitBoostTesting.R function written by Marcel 
   Dettling. See references and "See Also" section. The code was modified in 
   order to make it much faster for very large data sets. The speed-up was 
   achieved by implementing a internal version of decision stump classifier 
@@ -28,7 +28,7 @@
 }
 
 \value{
-  An object of class "LogitBoost" including components: 
+  An object of class "LogitBoostTesting" including components: 
   \item{Stump}{List of decision stumps (one node decision trees) used:
     \itemize{
       \item column 1: feature numbers or each stump, or which column each stump 
@@ -52,8 +52,8 @@
 
 \seealso{
  \itemize{
-   \item \code{\link{predict.LogitBoost}} has prediction half of LogitBoost code
-   \item \code{logitboost} function from \pkg{logitboost} library (not in CRAN
+   \item \code{\link{predict.LogitBoostTesting}} has prediction half of LogitBoostTesting code
+   \item \code{LogitBoostTesting} function from \pkg{LogitBoostTesting} library (not in CRAN
    or BioConductor is very similar but much
    slower on very large datasets. It also perform optional cross-validation.
  }
@@ -65,7 +65,7 @@
   Label = iris[, 5]
   
   # basic interface
-  model = LogitBoost(Data, Label, nIter=20)
+  model = LogitBoostTesting(Data, Label, nIter=20)
   Lab   = predict(model, Data)
   Prob  = predict(model, Data, type="raw")
   t     = cbind(Lab, Prob)
@@ -73,7 +73,7 @@
 
   # two alternative call syntax
   p=predict(model,Data)
-  q=predict.LogitBoost(model,Data)
+  q=predict.LogitBoostTesting(model,Data)
   pp=p[!is.na(p)]; qq=q[!is.na(q)]
   stopifnot(pp == qq)
 
@@ -84,7 +84,7 @@
   
   # example of spliting the data into train and test set
   mask = sample.split(Label)
-  model = LogitBoost(Data[mask,], Label[mask], nIter=10)
+  model = LogitBoostTesting(Data[mask,], Label[mask], nIter=10)
   table(predict(model, Data[!mask,], nIter=2), Label[!mask])
   table(predict(model, Data[!mask,]),          Label[!mask])
 }
