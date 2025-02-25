@@ -4,8 +4,8 @@
 # Distributed under GNU General Public License version 3                    #
 #===========================================================================#
 
-LogitBoostTesting = function(xlearn, ylearn, nIter=ncol(xlearn))
-#   An implementation of the LogitBoostTesting classification algorithm with
+LogitBoostReg = function(xlearn, ylearn, nIter=ncol(xlearn))
+#   An implementation of the LogitBoostReg classification algorithm with
 #   decision stumps as weak learners. 
 #   
 # Input:
@@ -21,7 +21,7 @@ LogitBoostTesting = function(xlearn, ylearn, nIter=ncol(xlearn))
 #            column 3: contains bigger/smaller info: 1 means (col>thresh ? class_1 : class_2);  -1 means (col>thresh ? class_2 : class_1)
 #
 # Writen by Jarek Tuszynski - SAIC (jaroslaw.w.tuszynski@saic.com)
-# This code was addapted from LogitBoostTesting.R function written by Marcel Dettling
+# This code was addapted from LogitBoostReg.R function written by Marcel Dettling
 # See "Boosting for Tumor Classification of Gene Expression Data", Dettling and Buhlmann (2002), 
 #   available on the web page http://stat.ethz.ch/~dettling/boosting.html
 {
@@ -32,10 +32,10 @@ LogitBoostTesting = function(xlearn, ylearn, nIter=ncol(xlearn))
     Stump = NULL                     # ... recursivly
     for (jClass in 1:nClass) {
       y = as.numeric(ylearn!=lablist[jClass]) # lablist[jClass]->1; rest->0
-      Stump = cbind(Stump, LogitBoostTesting(xlearn, y, nIter)$Stump)
+      Stump = cbind(Stump, LogitBoostReg(xlearn, y, nIter)$Stump)
     }
-    object = list(Stump=Stump, lablist=lablist) # create LogitBoostTesting object
-    class(object) <- "LogitBoostTesting"
+    object = list(Stump=Stump, lablist=lablist) # create LogitBoostReg object
+    class(object) <- "LogitBoostReg"
     return(object)
   }
   
@@ -131,14 +131,14 @@ LogitBoostTesting = function(xlearn, ylearn, nIter=ncol(xlearn))
     y[f==0] = 0.5
     Conv = sum(abs(ylearn-y)) # keep track of error rate
   }
-  object = list(Stump=Stump, lablist=lablist)  # create LogitBoostTesting object
-  class(object) <- "LogitBoostTesting"
+  object = list(Stump=Stump, lablist=lablist)  # create LogitBoostReg object
+  class(object) <- "LogitBoostReg"
   return(object)
 }
 
 
-predict.LogitBoostTesting = function(object, xtest, type = c("class", "raw"), nIter=NA, ...)
-#   An implementation of the LogitBoostTesting classification algorithm with
+predict.LogitBoostReg = function(object, xtest, type = c("class", "raw"), nIter=NA, ...)
+#   An implementation of the LogitBoostReg classification algorithm with
 #   decision stumps as weak learners. 
 #   
 # Input:
@@ -152,7 +152,7 @@ predict.LogitBoostTesting = function(object, xtest, type = c("class", "raw"), nI
 #            column 3: contains bigger/smaller info: 1 means (col>Thresh ? class_1 : class_2);  -1 means (col>Thresh ? class_2 : class_1)
 #
 # Writen by Jarek Tuszynski - SAIC (jaroslaw.w.tuszynski@saic.com)
-# This code was addapted from LogitBoostTesting.R function written by Marcel Dettling
+# This code was addapted from LogitBoostReg.R function written by Marcel Dettling
 # See "Boosting for Tumor Classification of Gene Expression Data", Dettling and Buhlmann (2002), 
 #   available on the web page http://stat.ethz.ch/~dettling/boosting.html
 {
@@ -170,7 +170,7 @@ predict.LogitBoostTesting = function(object, xtest, type = c("class", "raw"), nI
     object$lablist = c(1,2)           # generic labels 
     for(iClass in 1:nClass) {
       object$Stump = Stump[,3*iClass + (-2:0)]
-      prob = predict.LogitBoostTesting(object, xtest, type="raw", nIter=nIter)
+      prob = predict.LogitBoostReg(object, xtest, type="raw", nIter=nIter)
       Prob[,iClass] = prob[,1] # probability that "sample belongs to iClass" is true 
     }
   } else {                            # two class problem
