@@ -1,37 +1,29 @@
-Package: MASS
-Priority: recommended
-Version: 7.3-64
-Date: 2025-01-06
-Revision: $Rev: 3680 $
-Depends: R (>= 4.4.0), grDevices, graphics, stats, utils
-Imports: methods
-Suggests: lattice, nlme, nnet, survival
-Authors@R: c(person("Brian", "Ripley", role = c("aut", "cre", "cph"),
-                    email = "Brian.Ripley@R-project.org"),
-	     person("Bill", "Venables", role = c("aut", "cph")),
-	     person(c("Douglas", "M."), "Bates", role = "ctb"),
-	     person("Kurt", "Hornik", role = "trl",
-                     comment = "partial port ca 1998"),
-	     person("Albrecht", "Gebhardt", role = "trl",
-                     comment = "partial port ca 1998"),
-	     person("David", "Firth", role = "ctb",
-	            comment = "support functions for polr"))
-Description: Functions and datasets to support Venables and Ripley,
-  "Modern Applied Statistics with S" (4th edition, 2002).
-Title: Support Functions and Datasets for Venables and Ripley's MASS
-LazyData: yes
-ByteCompile: yes
-License: GPL-2 | GPL-3
-URL: http://www.stats.ox.ac.uk/pub/MASS4/
-Contact: <MASS@stats.ox.ac.uk>
+Package: TestingTools
+Type: Package
+Title: Tools: Moving Window Statistics, GIF, Base64, ROC AUC, etc
+Version: 1.18.3
+Date: 2024-09-04
+Authors@R: c(person(given = "Jarek",
+                      family = "Tuszynski",
+                      role = "aut",
+                      email = "jaroslaw.w.tuszynski@saic.com"),
+               person(given = "Michael",
+                      family = "Dietze",
+                      role = "cre",
+                      email = "michael.dietze@uni-goettingen.de"))
+Maintainer: Michael Dietze <michael.dietze@uni-goettingen.de>
+Depends: R (>= 3.6.0)
+Imports: bitops
+Suggests: MASS, rpart
+Description: Contains several basic utility functions including: moving
+        (rolling, running) window statistic functions, read/write for
+        GIF and ENVI binary files, fast calculation of AUC, LogitBoostTesting
+        classifier, base64 encoder/decoder, round-off-error-free sum
+        and cumsum, etc.
+License: GPL-3
 NeedsCompilation: yes
-Packaged: 2025-01-04 17:29:25 UTC; ripley
-Author: Brian Ripley [aut, cre, cph],
-  Bill Venables [aut, cph],
-  Douglas M. Bates [ctb],
-  Kurt Hornik [trl] (partial port ca 1998),
-  Albrecht Gebhardt [trl] (partial port ca 1998),
-  David Firth [ctb] (support functions for polr)
-Maintainer: Brian Ripley <Brian.Ripley@R-project.org>
 Repository: CRAN
-Date/Publication: 2025-01-04 17:32:27 UTC
+Packaged: 2024-09-04 15:01:56 UTC; dietze2
+Author: Jarek Tuszynski [aut],
+  Michael Dietze [cre]
+Date/Publication: 2024-09-04 17:00:02 UTC
